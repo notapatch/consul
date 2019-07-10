@@ -1,7 +1,8 @@
 App.HTMLEditor =
   initialize: ->
     $(".html-area").each ->
+      # TODO: doesn't work when adding / updating invalid translation data
       if $(this).hasClass("admin")
-        CKEDITOR.replace(this.name, language: $("html").attr("lang"), toolbar: "admin")
+        CKEDITOR.inline(this.name, language: $("html").attr("lang"), toolbar: "admin")
       else
-        CKEDITOR.replace(this.name, language: $("html").attr("lang"))
+        CKEDITOR.inline(this.name, language: $("html").attr("lang"))
